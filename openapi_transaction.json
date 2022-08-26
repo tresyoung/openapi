@@ -49,11 +49,6 @@
                         "id": 3,
                         "amount": 35,
                         "to": "Sally"
-                      },
-                      {
-                        "id": 2,
-                        "amount": 25,
-                        "to": "Bill"
                       }
                     ]
                   },
@@ -63,15 +58,17 @@
                     "properties": {
                       "id": {
                         "type": "number",
+                        "example": 1,
                         "description": "Transaction ID"
                       },
                       "amount": {
                         "type": "number",
+                        "example": 25,
                         "description": "Transaction amount"
                       },
                       "to": {
                         "type": "string",
-                        "minLength": 1,
+                        "example": "Joe",
                         "description": "Transaction recipient"
                       }
                     }
@@ -124,15 +121,17 @@
                 "properties": {
                   "id": {
                     "type": "number",
+                    "example": 2,
                     "description": "Transaction id"
                   },
                   "amount": {
                     "type": "number",
+                    "example": 100,
                     "description": "Transaction amount"
                   },
                   "to": {
                     "type": "string",
-                    "minLength": 1,
+                    "example": "Bob",
                     "description": "Transaction recipient"
                   }
                 },
@@ -190,15 +189,17 @@
                 "properties": {
                   "id": {
                     "type": "number",
+                    "example": 1,
                     "description": "Transaction id"
                   },
                   "amount": {
                     "type": "number",
+                    "example": 25,
                     "description": "Transaction amount"
                   },
                   "to": {
                     "type": "string",
-                    "minLength": 1,
+                    "example": "Joe",
                     "description": "Transaction recipient"
                   }
                 },
