@@ -1,0 +1,220 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Test Transactions API",
+    "version": "2.0.0",
+    "title": "Test Transactions API",
+    "contact": {
+      "email": "tresyoung@hotmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "developers",
+      "description": "Operations available to developers"
+    }
+  ],
+  "paths": {
+    "/": {
+      "parameters": [],
+      "get": {
+        "summary": "Retrieve array of all transactions",
+        "tags": [
+          "developers"
+        ],
+        "operationId": "get-transactions",
+        "description": "Retrieve the array of existing transactions",
+        "responses": {
+          "200": {
+            "description": "Retrieves all transactions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "Array of transactions",
+                  "minItems": 1,
+                  "uniqueItems": false,
+                  "x-examples": {
+                    "example-1": [
+                      {
+                        "id": 3,
+                        "amount": 35,
+                        "to": "Sally"
+                      },
+                      {
+                        "id": 2,
+                        "amount": 25,
+                        "to": "Bill"
+                      }
+                    ]
+                  },
+                  "items": {
+                    "type": "object",
+                    "description": "Transaction object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "description": "Transaction ID"
+                      },
+                      "amount": {
+                        "type": "number",
+                        "description": "Transaction amount"
+                      },
+                      "to": {
+                        "type": "string",
+                        "minLength": 1,
+                        "description": "Transaction recipient"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add transaction to the Transactions array",
+        "tags": [
+          "developers"
+        ],
+        "operationId": "add-transaction",
+        "description": "Add new transaction to the Transactions array",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": "successfully added transaction"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "requestBody": {
+          "description": "Transaction to be added to the Transactions array",
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Transaction",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "id": 2,
+                    "amount": 25,
+                    "to": "Bill"
+                  }
+                },
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "description": "Transaction id"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "description": "Transaction amount"
+                  },
+                  "to": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Transaction recipient"
+                  }
+                },
+                "required": [
+                  "id",
+                  "amount",
+                  "to"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete specified transaction from the Transactions array",
+        "tags": [
+          "developers"
+        ],
+        "operationId": "delete-transaction",
+        "description": "Deletes specified transaction from the Transactions array",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": "sucessfully deleted transaction"
+                  },
+                  "example-2": {
+                    "value": "no transaction with that id exists"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "description": "Transaction to be deleted from the Transaction array",
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Specified object is deleted from Transactions array",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "id": 1,
+                    "amount": 25,
+                    "to": "Joe"
+                  }
+                },
+                "properties": {
+                  "id": {
+                    "type": "number",
+                    "description": "Transaction id"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "description": "Transaction amount"
+                  },
+                  "to": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Transaction recipient"
+                  }
+                },
+                "required": [
+                  "id",
+                  "amount",
+                  "to"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
