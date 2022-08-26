@@ -1,7 +1,7 @@
 {
   "name": "openapi",
   "version": "1.0.0",
-  "description": "test package",
+  "description": "openapi test package",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -13,5 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
+    "cors": "^2.8.5"
   }
 }
