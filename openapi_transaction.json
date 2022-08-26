@@ -35,7 +35,7 @@
         "description": "Retrieve the array of existing transactions",
         "responses": {
           "200": {
-            "description": "Retreives all transactions",
+            "description": "Retrieves all transactions",
             "content": {
               "application/json": {
                 "schema": {
