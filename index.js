@@ -3,7 +3,7 @@ import cors from "cors";
 
 const app = express()
 app.options('*', cors())
-const port = 80
+const port = 3000
 
 const transactions = [{
     id: 1,
