@@ -1,21 +1,21 @@
-import express from "express";
+import express, { application } from "express";
+import cors from "cors";
 
 const app = express()
-
-const port = 3000
+app.options('*', cors())
+const port = 80
 
 const transactions = [{
     id: 1,
     amount: 25.00,
-    to: 'bill'
+    to: 'joe'
 }]
 
-app.use(express.json())
+app.use(express.json(), cors())
 
 app.get('/', (req, res) => {
     return res.send(transactions)
 })
-
 
 app.post('/', (req, res) => {
     const transaction = req.body
